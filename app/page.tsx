@@ -1,12 +1,94 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import ProductDemo from "@/components/ProductDemo";
 import FeaturesSection from "@/components/FeaturesSection";
 import DemoSection from "@/components/DemoSection";
 import ParallaxDots from "@/components/ParallaxDots";
 
+export const metadata: Metadata = {
+  title: "Satori Inference — Talk to Your Data",
+  description:
+    "Satori Inference connects to your data systems and lets your team extract business insights through natural language — no SQL required. The future of Satori data analytics.",
+  alternates: {
+    canonical: "https://satori-inference.com",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://satori-inference.com/#organization",
+      name: "Satori Inference",
+      alternateName: ["Satori", "Satori Data"],
+      url: "https://satori-inference.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://satori-inference.com/favicon.ico",
+      },
+      description:
+        "Satori Inference is a business intelligence platform that lets teams query their data using natural language — no SQL or engineering overhead required.",
+      sameAs: [],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://satori-inference.com/#website",
+      url: "https://satori-inference.com",
+      name: "Satori Inference",
+      description:
+        "Talk to your data. Satori Inference connects to your existing data systems — Snowflake, Databricks, SQL databases, APIs, and more — and lets your team extract decision-critical business insights through a natural language chat interface.",
+      publisher: {
+        "@id": "https://satori-inference.com/#organization",
+      },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: "https://satori-inference.com/?q={search_term_string}",
+        },
+        "query-input": "required name=search_term_string",
+      },
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://satori-inference.com/#product",
+      name: "Satori Inference",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+        description: "Book a demo to get started",
+      },
+      description:
+        "Satori Inference is an AI-powered business intelligence platform that connects to Snowflake, Databricks, SQL databases, APIs, and documents. Teams ask questions in plain English and get instant data-driven insights — no SQL required.",
+      featureList: [
+        "Natural language data queries",
+        "No SQL required",
+        "Snowflake integration",
+        "Databricks integration",
+        "SQL database connectivity",
+        "API data sources",
+        "Document intelligence",
+        "Agentic AI engine",
+        "Business insight extraction",
+      ],
+      publisher: {
+        "@id": "https://satori-inference.com/#organization",
+      },
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       <main>
         {/* ── Section 1: Hero ── */}

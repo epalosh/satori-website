@@ -1,8 +1,28 @@
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 
-export const metadata = {
-  title: "About — Satori Inference",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Satori Inference — AI-Powered Data Analytics",
+  description:
+    "Learn about Satori Inference — the team building AI-powered business intelligence that empowers every team member to understand their data without engineering overhead. Satori data, for everyone.",
+  keywords: [
+    "about Satori",
+    "Satori Inference team",
+    "Satori data company",
+    "AI business intelligence startup",
+    "natural language analytics company",
+  ],
+  alternates: {
+    canonical: "https://satori-inference.com/about",
+  },
+  openGraph: {
+    title: "About Satori Inference — AI-Powered Data Analytics",
+    description:
+      "We're building Satori Inference to empower every team member to understand their data without engineering overhead.",
+    url: "https://satori-inference.com/about",
+  },
 };
 
 export default function About() {
