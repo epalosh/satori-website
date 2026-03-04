@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Satori Inference",
-    title: "Satori Inference — Talk to Your Data",
+    title: "Satori Inference",
     description:
       "Satori Inference lets teams instantly extract business insights from data through a natural language chat interface — no SQL required.",
     images: [
@@ -67,13 +67,13 @@ export const metadata: Metadata = {
         url: "/preview-image.png",
         width: 1200,
         height: 630,
-        alt: "Satori Inference — Talk to Your Data",
+        alt: "Satori Inference",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Satori Inference — Talk to Your Data",
+    title: "Satori Inference",
     description:
       "Satori Inference lets teams instantly extract business insights from data through a natural language chat interface — no SQL required.",
     images: ["/preview-image.png"],
