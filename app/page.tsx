@@ -161,7 +161,7 @@ export default function Home() {
         <div id="features" className="h-10 bg-white" />
         <FeaturesSection />
 
-        {/* ── Section 3: Demo booking ── */}
+        {/* ── Section 3: Founding Team + Demo booking ── */}
         <DemoSection />
       </main>
 
