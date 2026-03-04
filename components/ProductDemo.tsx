@@ -224,7 +224,6 @@ export default function ProductDemo() {
               {[
                 { label: "ERP System", dot: "bg-blue-400" },
                 { label: "Supplier DB", dot: "bg-orange-400" },
-                { label: "QC Reports", dot: "bg-green-400" },
               ].map((src) => (
                 <span
                   key={src.label}
