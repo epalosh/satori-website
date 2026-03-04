@@ -1,65 +1,100 @@
-import Image from "next/image";
+import Navbar from "@/components/Navbar";
+import ProductDemo from "@/components/ProductDemo";
+import FeaturesSection from "@/components/FeaturesSection";
+import DemoSection from "@/components/DemoSection";
+import ParallaxDots from "@/components/ParallaxDots";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, RAHHHH.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <Navbar />
+      <main>
+        {/* ── Section 1: Hero ── */}
+        <section className="relative overflow-hidden min-h-[95vh] px-6 md:px-10 pt-20 flex items-center">
+          <ParallaxDots />
+          <div className="relative z-10 max-w-6xl mx-auto w-full py-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-center">
+              {/* Left: copy */}
+              <div className="flex flex-col">
+                <p className="text-xs font-medium tracking-widest text-gray-400 uppercase mb-6">
+                  Business intelligence, reimagined
+                </p>
+                <h1 className="text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-black mb-6">
+                  Talk to
+                  <br />
+                  your data.
+                </h1>
+                <p className="text-lg text-gray-500 leading-relaxed mb-10 max-w-md">
+                  Satori lets teams instantly extract decision-critical business insights from data without the friction of a software engineer.
+                </p>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                  <a
+                    href="#demo"
+                    className="inline-flex items-center gap-2 h-11 px-6 bg-black text-white text-sm font-medium rounded-md hover:bg-gray-900 transition-colors"
+                  >
+                    Book a Demo
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M2 7h10M8 3l4 4-4 4" />
+                    </svg>
+                  </a>
+                  <a
+                    href="#features"
+                    className="inline-flex items-center gap-1.5 h-11 px-4 text-sm font-medium text-gray-600 hover:text-black transition-colors"
+                  >
+                    See how it works
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M7 2v10M3 8l4 4 4-4" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* Right: animated product demo */}
+              <div className="w-full lg:max-w-[480px] lg:ml-auto">
+                <ProductDemo />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Section 2: Features ── */}
+        <div id="features" className="h-10 bg-white" />
+        <FeaturesSection />
+
+        {/* ── Section 3: Demo booking ── */}
+        <DemoSection />
+      </main>
+
+      {/* Footer */}
+      <footer className="relative overflow-hidden border-t border-gray-200 bg-white px-6 md:px-10 py-8">
+        <ParallaxDots />
+        <div className="relative z-10 max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <span className="text-sm font-semibold text-black">
+            Satori Inference
+          </span>
+          <p className="text-sm text-gray-400">
+            © {new Date().getFullYear()} Satori Inference. All rights reserved.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </footer>
+    </>
   );
 }
