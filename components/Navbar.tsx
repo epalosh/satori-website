@@ -13,7 +13,7 @@ export default function Navbar() {
       </Link>
 
       <a
-        href="/#demo"
+        href="/#book-demo"
         className="inline-flex items-center gap-2 h-9 px-4 bg-black text-white text-sm font-medium rounded-md hover:bg-gray-900 transition-colors"
       >
         Book a Demo

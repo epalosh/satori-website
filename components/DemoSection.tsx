@@ -89,7 +89,10 @@ export default function DemoSection() {
           <p className="text-xs font-medium tracking-widest text-gray-400 uppercase mb-3">
             Get started
           </p>
-          <h2 className="text-3xl font-bold text-black mb-4">
+          <h2
+            id="book-demo"
+            className="text-3xl font-bold text-black mb-4 scroll-mt-32"
+          >
             Interested? Book a product demo.
           </h2>
           <p className="text-base text-gray-500 max-w-md leading-relaxed mx-auto mb-10">

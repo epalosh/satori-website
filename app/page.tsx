@@ -111,7 +111,7 @@ export default function Home() {
                 </p>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
                   <a
-                    href="#demo"
+                    href="#book-demo"
                     className="inline-flex items-center gap-2 h-11 px-6 bg-black text-white text-sm font-medium rounded-md hover:bg-gray-900 transition-colors"
                   >
                     Book a Demo
