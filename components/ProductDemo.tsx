@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const QUESTION =
-  "Which of my suppliers have the lowest error rate for machined parts?";
+  "Build us a dashboard for tracking and comparing supplier error rates";
 
 const SUPPLIERS = [
   { name: "Meridian Precision", rate: 0.8, color: "#22c55e" },

@@ -1,12 +1,13 @@
-type IconType = "sql" | "databricks" | "snowflake" | "docs" | "shield" | "api";
+type IconType = "sql" | "api" | "docs" | "mes" | "erp" | "crm" | "email";
 
 const dataSources: { label: string; color: string; icon: IconType }[] = [
-  { label: "SQL Database", color: "#6b7280", icon: "sql"        },
-  { label: "Custom APIs",  color: "#6b7280", icon: "api"        },
-  { label: "Databricks",   color: "#E87040", icon: "databricks" },
-  { label: "Snowflake",    color: "#29B5E8", icon: "snowflake"  },
-  { label: "Documents",    color: "#6b7280", icon: "docs"       },
-  { label: "Internal Data",color: "#6b7280", icon: "shield"     },
+  { label: "MES",                color: "#6b7280", icon: "mes"   },
+  { label: "ERP",                color: "#6b7280", icon: "erp"   },
+  { label: "CRM",                color: "#6b7280", icon: "crm"   },
+  { label: "Contracts", color: "#6b7280", icon: "docs"  },
+  { label: "Email Records",      color: "#6b7280", icon: "email" },
+  { label: "SQL Database",       color: "#6b7280", icon: "sql"   },
+  { label: "Custom APIs",        color: "#6b7280", icon: "api"   },
 ];
 
 // ── Layout constants ───────────────────────────────────────────────────────────
@@ -20,8 +21,8 @@ const CARD_R   = CARD_X + CARD_W;      // 126
 const SI_X  = 280;
 const SI_W  = 110;
 const SI_H  = 155;
-const SI_CY = 200;                      // vertical center
-const SI_Y  = SI_CY - SI_H / 2;        // 122.5
+const SI_CY = 236;                      // vertical center (7 cards × 56 + 6 gaps × 8 = 440 → 16 + 220)
+const SI_Y  = SI_CY - SI_H / 2;        // 158.5
 const SI_CX = SI_X + SI_W / 2;         // 335
 const SI_R  = SI_X + SI_W;             // 390
 
@@ -29,14 +30,58 @@ const SI_R  = SI_X + SI_W;             // 390
 const DASH_X = 470;
 const DASH_W = 375;
 const DASH_H = Math.round(DASH_W * (740 / 974)); // ≈ 285
-const DASH_Y = SI_CY - Math.round(DASH_H / 2);   // ≈ 57
+const DASH_Y = SI_CY - Math.round(DASH_H / 2);   // ≈ 94
 
-// 6 cards × 56px + 5 gaps × 8px = 376px total → start at 200-188=12
-function cardTop(i: number)    { return 12 + i * (CARD_H + CARD_GAP); }
+// 7 cards × 56px + 6 gaps × 8px = 440px total → start at 236-220=16
+function cardTop(i: number)    { return 16 + i * (CARD_H + CARD_GAP); }
 function cardCenter(i: number) { return cardTop(i) + CARD_H / 2; }
 
 function DataIcon({ type, color }: { type: IconType; color: string }) {
   switch (type) {
+    case "mes":
+      // Gear / manufacturing
+      return (
+        <>
+          <circle cx="0" cy="0" r="5" fill="none" stroke={color} strokeWidth="1.5" />
+          <circle cx="0" cy="0" r="2" fill="none" stroke={color} strokeWidth="1.2" />
+          <line x1="0"    y1="-5"  x2="0"    y2="-8.5" stroke={color} strokeWidth="2.8" strokeLinecap="round" />
+          <line x1="0"    y1="5"   x2="0"    y2="8.5"  stroke={color} strokeWidth="2.8" strokeLinecap="round" />
+          <line x1="-5"   y1="0"   x2="-8.5" y2="0"    stroke={color} strokeWidth="2.8" strokeLinecap="round" />
+          <line x1="5"    y1="0"   x2="8.5"  y2="0"    stroke={color} strokeWidth="2.8" strokeLinecap="round" />
+          <line x1="-3.5" y1="-3.5" x2="-6"  y2="-6"   stroke={color} strokeWidth="2.8" strokeLinecap="round" />
+          <line x1="3.5"  y1="-3.5" x2="6"   y2="-6"   stroke={color} strokeWidth="2.8" strokeLinecap="round" />
+          <line x1="-3.5" y1="3.5"  x2="-6"  y2="6"    stroke={color} strokeWidth="2.8" strokeLinecap="round" />
+          <line x1="3.5"  y1="3.5"  x2="6"   y2="6"    stroke={color} strokeWidth="2.8" strokeLinecap="round" />
+        </>
+      );
+    case "erp":
+      // Stacked layers / building blocks
+      return (
+        <>
+          <rect x="-8" y="-9" width="16" height="5" rx="1" fill="none" stroke={color} strokeWidth="1.5" />
+          <rect x="-8" y="-2" width="16" height="5" rx="1" fill="none" stroke={color} strokeWidth="1.5" />
+          <rect x="-8" y="5"  width="16" height="5" rx="1" fill="none" stroke={color} strokeWidth="1.5" />
+        </>
+      );
+    case "crm":
+      // Person / contact
+      return (
+        <>
+          <circle cx="0" cy="-5" r="3.5" fill="none" stroke={color} strokeWidth="1.5" />
+          <path d="M-8,10 C-8,3 -4,1 0,1 C4,1 8,3 8,10"
+            fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+        </>
+      );
+    case "email":
+      // Envelope
+      return (
+        <>
+          <rect x="-9" y="-6" width="18" height="12" rx="1.5"
+            fill="none" stroke={color} strokeWidth="1.5" />
+          <path d="M-9,-6 L0,3 L9,-6"
+            fill="none" stroke={color} strokeWidth="1.5" strokeLinejoin="round" />
+        </>
+      );
     case "sql":
       return (
         <>
@@ -47,10 +92,6 @@ function DataIcon({ type, color }: { type: IconType; color: string }) {
           <path d="M-9,0 A9,3 0 0,0 9,0" fill="none" stroke={color} strokeWidth="1" opacity="0.4" />
         </>
       );
-    case "databricks":
-      return <image href="/databricks-logo.svg" x="-11" y="-11" width="22" height="22" />;
-    case "snowflake":
-      return <image href="/snowflake-logo.svg" x="-11" y="-11" width="22" height="22" />;
     case "docs":
       return (
         <>
@@ -61,15 +102,6 @@ function DataIcon({ type, color }: { type: IconType; color: string }) {
           <line x1="-3.5" y1="-1" x2="5.5" y2="-1" stroke={color} strokeWidth="1.2" strokeLinecap="round" />
           <line x1="-3.5" y1="3"  x2="5.5" y2="3"  stroke={color} strokeWidth="1.2" strokeLinecap="round" />
           <line x1="-3.5" y1="7"  x2="1.5" y2="7"  stroke={color} strokeWidth="1.2" strokeLinecap="round" />
-        </>
-      );
-    case "shield":
-      return (
-        <>
-          <path d="M0,-11 L9,-6.5 L9,1 C9,6.5 5,10 0,12 C-5,10 -9,6.5 -9,1 L-9,-6.5 Z"
-            fill="none" stroke={color} strokeWidth="1.5" strokeLinejoin="round" />
-          <circle cx="0" cy="-1.5" r="1.8" fill="none" stroke={color} strokeWidth="1.2" />
-          <line x1="0" y1="0.3" x2="0" y2="3.8" stroke={color} strokeWidth="1.2" strokeLinecap="round" />
         </>
       );
     case "api":
@@ -131,7 +163,7 @@ export default function FeaturesSection() {
         {/* ── Flow diagram — horizontal left → right ── */}
         <div style={{ width: "100%", maxWidth: "900px", margin: "0 auto" }}>
           <svg
-            viewBox="0 0 865 420"
+            viewBox="0 0 865 490"
             style={{ width: "100%", height: "auto", display: "block", overflow: "visible" }}
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -218,21 +250,21 @@ export default function FeaturesSection() {
                 SATORI INFERENCE — white card
             ══════════════════════════════════════ */}
             <g>
-              <rect x={SI_X} y={SI_Y} width={SI_W} height={SI_H} rx={8} fill="#0d1f42" stroke="#1d4ed8" strokeWidth="1" />
+              <rect x={SI_X} y={SI_Y} width={SI_W} height={SI_H} rx={8} fill="#474747" stroke="#d5d5d5" strokeWidth="1" />
               <text x={SI_CX} y={SI_Y + 70} textAnchor="middle"
                 fill="#f9f9f9" fontSize="17" letterSpacing="-0.5"
                 fontFamily="Inter, -apple-system, sans-serif" fontWeight="700">
                 Satori
               </text>
-              <line x1={SI_CX - 20} y1={SI_Y + 80} x2={SI_CX + 20} y2={SI_Y + 80} stroke="#1d4ed8" strokeWidth="1" />
+              <line x1={SI_CX - 20} y1={SI_Y + 80} x2={SI_CX + 20} y2={SI_Y + 80} stroke="#ffffff" strokeWidth="1" />
               <text x={SI_CX} y={SI_Y + 96} textAnchor="middle"
-                fill="#60a5fa" fontSize="8.5"
+                fill="#fdfdfd" fontSize="8.5"
                 fontFamily="Inter, -apple-system, sans-serif" fontWeight="400">
                 Agentic Engine
               </text>
-              <circle cx={SI_CX - 13} cy={SI_Y + 124} r="2" fill="#3b82f6" className="blip-1" />
-              <circle cx={SI_CX}      cy={SI_Y + 124} r="2" fill="#3b82f6" className="blip-2" />
-              <circle cx={SI_CX + 13} cy={SI_Y + 124} r="2" fill="#3b82f6" className="blip-3" />
+              <circle cx={SI_CX - 13} cy={SI_Y + 124} r="2" fill="#a5a5a5" className="blip-1" />
+              <circle cx={SI_CX}      cy={SI_Y + 124} r="2" fill="#a5a5a5" className="blip-2" />
+              <circle cx={SI_CX + 13} cy={SI_Y + 124} r="2" fill="#a5a5a5" className="blip-3" />
             </g>
 
             {/* ══════════════════════════════════════
