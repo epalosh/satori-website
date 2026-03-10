@@ -14,15 +14,16 @@ const siteUrl = "https://satori-inference.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Satori Inference — Talk to Your Data",
+    default: "Satori Inference: The Agentic Data Platform for Manufacturing",
     template: "%s | Satori Inference",
   },
   description:
-    "Satori Inference connects to your existing data systems and lets your team extract business insights through a natural language chat interface — no SQL required. Satori data, reimagined.",
+    "Satori Inference is the agentic data platform for manufacturing. Connect to your data systems and empower teams to extract business insights through natural language — no SQL required.",
   keywords: [
     "Satori",
     "Satori Inference",
-    "Satori data",
+    "agentic data platform",
+    "manufacturing data",
     "talk to your data",
     "natural language data query",
     "business intelligence",
@@ -59,9 +60,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Satori Inference",
-    title: "Satori Inference",
+    title: "Satori Inference: The Agentic Data Platform for Manufacturing",
     description:
-      "Satori Inference lets teams instantly extract business insights from data through a natural language chat interface — no SQL required.",
+      "The agentic data platform for manufacturing. Connect to your data systems and empower teams to extract business insights through natural language — no SQL required.",
     images: [
       {
         url: "/preview-image.png",
@@ -73,9 +74,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Satori Inference",
+    title: "Satori Inference: The Agentic Data Platform for Manufacturing",
     description:
-      "Satori Inference lets teams instantly extract business insights from data through a natural language chat interface — no SQL required.",
+      "The agentic data platform for manufacturing. Connect to your data systems and empower teams to extract business insights through natural language — no SQL required.",
     images: ["/preview-image.png"],
     creator: "@satoriinference",
   },

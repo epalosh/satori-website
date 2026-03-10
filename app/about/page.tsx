@@ -4,13 +4,14 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Satori Inference — AI-Powered Data Analytics",
+  title: "About Satori Inference | Satori Inference",
   description:
-    "Learn about Satori Inference — the team building AI-powered business intelligence that empowers every team member to understand their data without engineering overhead. Satori data, for everyone.",
+    "Learn about Satori Inference — the team building the agentic data platform for manufacturing. Empowering every team member to understand their data without engineering overhead.",
   keywords: [
     "about Satori",
     "Satori Inference team",
-    "Satori data company",
+    "agentic data platform",
+    "manufacturing data",
     "AI business intelligence startup",
     "natural language analytics company",
   ],
@@ -18,9 +19,9 @@ export const metadata: Metadata = {
     canonical: "https://satori-inference.com/about",
   },
   openGraph: {
-    title: "About Satori Inference — AI-Powered Data Analytics",
+    title: "About Satori Inference",
     description:
-      "We're building Satori Inference to empower every team member to understand their data without engineering overhead.",
+      "We're building Satori Inference to empower every team member to understand their manufacturing data without engineering overhead.",
     url: "https://satori-inference.com/about",
   },
 };
