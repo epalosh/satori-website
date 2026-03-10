@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s | Satori Inference",
   },
   description:
-    "Satori Inference is the agentic data platform for manufacturing. Connect to your data systems and empower teams to extract business insights through natural language — no SQL required.",
+    "Connect to your data systems and empower teams to extract business insights through natural language.",
   keywords: [
     "Satori",
     "Satori Inference",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     siteName: "Satori Inference",
     title: "Satori Inference: The Agentic Data Platform for Manufacturing",
     description:
-      "The agentic data platform for manufacturing. Connect to your data systems and empower teams to extract business insights through natural language — no SQL required.",
+      "Connect to your data systems and empower teams to extract business insights through natural language.",
     images: [
       {
         url: "/preview-image.png",
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Satori Inference: The Agentic Data Platform for Manufacturing",
     description:
-      "The agentic data platform for manufacturing. Connect to your data systems and empower teams to extract business insights through natural language — no SQL required.",
+      "Connect to your data systems and empower teams to extract business insights through natural language.",
     images: ["/preview-image.png"],
     creator: "@satoriinference",
   },

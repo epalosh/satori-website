@@ -8,7 +8,7 @@ import ParallaxDots from "@/components/ParallaxDots";
 export const metadata: Metadata = {
   title: "Satori Inference: The Agentic Data Platform for Manufacturing",
   description:
-    "The agentic data platform for manufacturing. Connect to your data systems and empower teams to extract business insights through natural language — no SQL required.",
+    "Connect to your data systems and empower teams to extract business insights through natural language.",
   alternates: {
     canonical: "https://satori-inference.com",
   },
