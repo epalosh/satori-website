@@ -150,10 +150,10 @@ export default function PipelineSection() {
               return (
                 <path key={`track-${i}`}
                   d={`M ${CARD_R} ${cy} C ${(CARD_R + SI_X) / 2} ${cy} ${(CARD_R + SI_X) / 2} ${SI_CY} ${SI_X} ${SI_CY}`}
-                  fill="none" stroke="#1a1a1a" strokeWidth="1.5" />
+                  fill="none" stroke="#383838" strokeWidth="1.5" />
               );
             })}
-            <line x1={SI_R} y1={SI_CY} x2={DASH_X} y2={SI_CY} stroke="#1a1a1a" strokeWidth="1.5" />
+            <line x1={SI_R} y1={SI_CY} x2={DASH_X} y2={SI_CY} stroke="#383838" strokeWidth="1.5" />
 
             {/* Animated flow lines */}
             {dataSources.map((_, i) => {
@@ -161,19 +161,19 @@ export default function PipelineSection() {
               return (
                 <path key={`flow-${i}`} className="flow-line"
                   d={`M ${CARD_R} ${cy} C ${(CARD_R + SI_X) / 2} ${cy} ${(CARD_R + SI_X) / 2} ${SI_CY} ${SI_X} ${SI_CY}`}
-                  fill="none" stroke="#3a3a3a" strokeWidth="1.5" strokeLinecap="round"
+                  fill="none" stroke="#707070" strokeWidth="1.5" strokeLinecap="round"
                   style={{ animationDelay: `${i * 0.4}s` }} />
               );
             })}
-            <line className="flow-line" x1={SI_R} y1={SI_CY} x2={DASH_X} y2={SI_CY} stroke="#3a3a3a" strokeWidth="1.5" strokeLinecap="round" />
+            <line className="flow-line" x1={SI_R} y1={SI_CY} x2={DASH_X} y2={SI_CY} stroke="#707070" strokeWidth="1.5" strokeLinecap="round" />
 
             {/* Connector dots */}
             {dataSources.map((_, i) => (
-              <circle key={`cdot-${i}`} cx={CARD_R} cy={cardCenter(i)} r="2.5" fill="#0e0e0e" stroke="#2a2a2a" strokeWidth="1.2" />
+              <circle key={`cdot-${i}`} cx={CARD_R} cy={cardCenter(i)} r="2.5" fill="#0e0e0e" stroke="#606060" strokeWidth="1.2" />
             ))}
-            <circle cx={SI_X} cy={SI_CY} r="3" fill="#3a3a3a" />
-            <circle cx={SI_R} cy={SI_CY} r="3" fill="#3a3a3a" />
-            <polygon points={`${DASH_X},${SI_CY - 4} ${DASH_X},${SI_CY + 4} ${DASH_X + 7},${SI_CY}`} fill="#3a3a3a" />
+            <circle cx={SI_X} cy={SI_CY} r="3" fill="#707070" />
+            <circle cx={SI_R} cy={SI_CY} r="3" fill="#707070" />
+            <polygon points={`${DASH_X},${SI_CY - 4} ${DASH_X},${SI_CY + 4} ${DASH_X + 7},${SI_CY}`} fill="#707070" />
 
             {/* Data source cards */}
             {dataSources.map(({ label, color, icon }, i) => {
@@ -215,12 +215,33 @@ export default function PipelineSection() {
               <rect x={DASH_X - 16} y={DASH_Y - 16} width={DASH_W + 32} height={DASH_H + 32} rx={14} fill="rgba(255,255,255,0.06)" opacity={0.8} filter="url(#dashGlow)" />
               <image
                 href="/dashboard-preview.png"
-                x={DASH_X - 7} y={DASH_Y - 6}
-                width={DASH_W + 14} height={Math.round((DASH_W + 14) * (740 / 974))}
+                x={DASH_X} y={DASH_Y}
+                width={DASH_W} height={DASH_H}
                 clipPath="url(#dashClip)"
-                preserveAspectRatio="none"
+                preserveAspectRatio="xMidYMid meet"
               />
-              <rect x={DASH_X} y={DASH_Y} width={DASH_W} height={DASH_H} rx={6} fill="none" stroke="#2a2a2a" strokeWidth="1" />
+              {/* Static grey track — upper half */}
+              <path
+                d={`M ${DASH_X},${SI_CY} L ${DASH_X},${DASH_Y + 6} A 6,6 0 0,1 ${DASH_X + 6},${DASH_Y} L ${DASH_X + DASH_W - 6},${DASH_Y} A 6,6 0 0,1 ${DASH_X + DASH_W},${DASH_Y + 6} L ${DASH_X + DASH_W},${SI_CY}`}
+                fill="none" stroke="#383838" strokeWidth="1.5"
+              />
+              {/* Static grey track — lower half */}
+              <path
+                d={`M ${DASH_X},${SI_CY} L ${DASH_X},${DASH_Y + DASH_H - 6} A 6,6 0 0,0 ${DASH_X + 6},${DASH_Y + DASH_H} L ${DASH_X + DASH_W - 6},${DASH_Y + DASH_H} A 6,6 0 0,0 ${DASH_X + DASH_W},${DASH_Y + DASH_H - 6} L ${DASH_X + DASH_W},${SI_CY}`}
+                fill="none" stroke="#383838" strokeWidth="1.5"
+              />
+              {/* Animated dashed border — splits at intersection, upper half */}
+              <path
+                className="flow-line"
+                d={`M ${DASH_X},${SI_CY} L ${DASH_X},${DASH_Y + 6} A 6,6 0 0,1 ${DASH_X + 6},${DASH_Y} L ${DASH_X + DASH_W - 6},${DASH_Y} A 6,6 0 0,1 ${DASH_X + DASH_W},${DASH_Y + 6} L ${DASH_X + DASH_W},${SI_CY}`}
+                fill="none" stroke="#707070" strokeWidth="1.5" strokeLinecap="round"
+              />
+              {/* Animated dashed border — splits at intersection, lower half */}
+              <path
+                className="flow-line"
+                d={`M ${DASH_X},${SI_CY} L ${DASH_X},${DASH_Y + DASH_H - 6} A 6,6 0 0,0 ${DASH_X + 6},${DASH_Y + DASH_H} L ${DASH_X + DASH_W - 6},${DASH_Y + DASH_H} A 6,6 0 0,0 ${DASH_X + DASH_W},${DASH_Y + DASH_H - 6} L ${DASH_X + DASH_W},${SI_CY}`}
+                fill="none" stroke="#707070" strokeWidth="1.5" strokeLinecap="round"
+              />
             </g>
           </svg>
         </motion.div>
