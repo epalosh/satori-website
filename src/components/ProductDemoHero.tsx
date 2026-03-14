@@ -76,7 +76,7 @@ function LineChart({ visible }: { visible: boolean }) {
 }
 
 const CHROME_H = 44;
-const CONTENT_H = 318;
+const CONTENT_H = 430;
 
 export default function ProductDemoHero() {
   const scrollRef = useRef<HTMLDivElement>(null);
