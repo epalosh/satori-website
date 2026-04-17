@@ -6,7 +6,7 @@ import ProductDemoHero from "./ProductDemoHero";
 export default function Hero({ onBookDemo }: { onBookDemo?: () => void }) {
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 pb-24"
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-24"
       style={{ backgroundColor: "transparent" }}
     >
       {/* Radial glow */}

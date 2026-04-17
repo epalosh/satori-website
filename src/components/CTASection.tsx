@@ -32,12 +32,23 @@ export default function CTASection({ onBookDemo }: { onBookDemo?: () => void }) 
           <p className="text-base leading-relaxed mb-10 max-w-md mx-auto" style={{ color: "#888888" }}>
             No commitment required. We promise to blow your mind!
           </p>
-          <button
-            onClick={onBookDemo}
-            className="h-12 px-8 bg-white text-black text-sm font-semibold rounded cursor-pointer hover:bg-gray-100 transition-colors"
-          >
-            Book a Demo →
-          </button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href="https://app.satori-inference.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-12 px-8 text-white text-sm font-semibold rounded cursor-pointer transition-opacity hover:opacity-90 flex items-center"
+              style={{ backgroundColor: "#0d9488" }}
+            >
+              Live Demo Site
+            </a>
+            <button
+              onClick={onBookDemo}
+              className="h-12 px-8 bg-white text-black text-sm font-semibold rounded cursor-pointer hover:bg-gray-100 transition-colors"
+            >
+              Book a Demo →
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>
