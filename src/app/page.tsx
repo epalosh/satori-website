@@ -1,34 +1,36 @@
-"use client";
-
-import { useState } from "react";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import PipelineSection from "@/components/PipelineSection";
-import CapabilitiesSection from "@/components/CapabilitiesSection";
-import DemoShowcase from "@/components/DemoShowcase";
-import TeamSection from "@/components/TeamSection";
-import CTASection from "@/components/CTASection";
-import DemoModal from "@/components/DemoModal";
+import { InvestorsSection, TeamSection } from "@/components/AboutInvestors";
+import BookDemo from "@/components/BookDemo";
+import Features from "@/components/Features";
+import FinalCta from "@/components/FinalCta";
+import FlowDiagram from "@/components/FlowDiagram";
 import Footer from "@/components/Footer";
-import GridBackground from "@/components/GridBackground";
+import Hero from "@/components/Hero";
+import HowItWorks from "@/components/HowItWorks";
+import LogoWall from "@/components/LogoWall";
+import MetaWordmark from "@/components/MetaWordmark";
+import Nav from "@/components/Nav";
+import SiteBackground from "@/components/SiteBackground";
+
+const LOGIN_URL = "https://app.satori-inference.com/sign-in";
+// All "Book a demo" CTAs scroll to the embedded Cal.com scheduler below the team.
+const BOOK_DEMO_HREF = "#book-demo";
 
 export default function Home() {
-  const [demoOpen, setDemoOpen] = useState(false);
-
   return (
     <>
-      <GridBackground />
-      <Navbar onBookDemo={() => setDemoOpen(true)} />
-      <main>
-        <Hero onBookDemo={() => setDemoOpen(true)} />
-<PipelineSection />
-        <CapabilitiesSection />
-        <DemoShowcase />
-        <TeamSection />
-        <CTASection onBookDemo={() => setDemoOpen(true)} />
-      </main>
+      <SiteBackground />
+      <Nav loginUrl={LOGIN_URL} demoUrl={BOOK_DEMO_HREF} />
+      <Hero demoUrl={BOOK_DEMO_HREF} />
+      <LogoWall />
+      <HowItWorks />
+      <FlowDiagram />
+      <Features />
+      <TeamSection />
+      <BookDemo />
+      <InvestorsSection />
+      <FinalCta demoUrl={BOOK_DEMO_HREF} />
+      <MetaWordmark />
       <Footer />
-      <DemoModal open={demoOpen} onClose={() => setDemoOpen(false)} />
     </>
   );
 }
