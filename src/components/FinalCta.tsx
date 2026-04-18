@@ -26,11 +26,7 @@ export default function FinalCta({ demoUrl }: { demoUrl: string }) {
           }} />
           <div style={{ position: "relative" }}>
             <h2 className="h-display" style={{ marginTop: 24, fontSize: isMobile ? "clamp(28px, 7.5vw, 40px)" : "clamp(36px, 4.4vw, 58px)" }}>
-              {isMobile ? (
-                <>Build powerful analytics tools your team needs today. <span style={{ color: "#14b8a6" }}>Not next month.</span></>
-              ) : (
-                <>Build powerful analytics tools your team needs today.<br /><span style={{ color: "#14b8a6" }}>Not next month.</span></>
-              )}
+              Unlock data-driven outcomes <span style={{ color: "#14b8a6" }}>today</span>.
             </h2>
             <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 32, flexWrap: "wrap" }}>
               <a href={demoUrl} className="btn btn-teal btn-lg">Book a demo →</a>

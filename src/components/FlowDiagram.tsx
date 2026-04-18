@@ -5,7 +5,7 @@ import SatoriMark from "./SatoriMark";
 import { useViewportWidth } from "./useViewport";
 
 const flowStyles: Record<string, CSSProperties> = {
-  section: { position: "relative", padding: "0 0 24px" },
+  section: { position: "relative" },
   stage: {
     position: "relative",
     marginTop: 48,
@@ -69,7 +69,18 @@ export default function FlowDiagram() {
   const scaledHeight = (H + stagePad * 2) * stageScale;
 
   return (
-    <section id="architecture" className="section" style={flowStyles.section}>
+    <section
+      id="architecture"
+      className="section"
+      style={{
+        ...flowStyles.section,
+        // On mobile, bump top/bottom padding so this reads as a distinct section
+        // instead of blurring into HowItWorks / Features. Desktop keeps original
+        // 0/24 (tight because the stage card provides its own visual boundary).
+        paddingTop: isMobile ? 96 : 0,
+        paddingBottom: isMobile ? 96 : 24,
+      }}
+    >
       <div className="container">
         <div style={{ textAlign: isMobile ? "center" : "left", maxWidth: 820, marginLeft: isMobile ? "auto" : 0, marginRight: isMobile ? "auto" : 0, marginBottom: 32 }}>
           <h2 className="h-xl">
@@ -212,10 +223,7 @@ function FlowStage(p: StageProps) {
                 boxShadow: "0 4px 16px rgba(0,0,0,0.4)",
               }}>
                 <span style={{ width: 8, height: 8, background: s.color, boxShadow: `0 0 8px ${s.color}` }} />
-                <span style={{ display: "flex", flexDirection: "column" }}>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: "#EDEDED" }}>{s.label}</span>
-                  <span style={{ fontSize: 10, color: "#666", fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace", letterSpacing: "0.04em" }}>{s.sub}</span>
-                </span>
+                <span style={{ fontSize: 13, fontWeight: 600, color: "#EDEDED" }}>{s.label}</span>
               </div>
             </div>
           );

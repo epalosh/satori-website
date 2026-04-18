@@ -47,7 +47,6 @@ type Logo = { name: string; src: string };
 const ROW_A: Logo[] = [
   { name: "PostgreSQL",   src: "/logos/postgresql.svg" },
   { name: "Snowflake",    src: "/logos/snowflake.svg" },
-  { name: "SAP",          src: "/logos/sap.svg" },
   { name: "Google Drive", src: "/logos/google-drive.svg" },
   { name: "BigQuery",     src: "/logos/bigquery.svg" },
   { name: "Oracle",       src: "/logos/oracle.svg" },

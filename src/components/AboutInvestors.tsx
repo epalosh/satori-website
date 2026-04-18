@@ -85,7 +85,14 @@ export function InvestorsSection() {
         <div className="investors-slim-inner">
           <span className="investors-slim-tag">INVESTORS</span>
           <p className="investors-slim-copy">
-            For partnership inquiries — <a href="mailto:invest@satori-inference.com">invest@satori-inference.com</a>.
+            For partnership inquiries —{" "}
+            <a
+              href="mailto:invest@satori-inference.com"
+              style={{ whiteSpace: "nowrap" }}
+            >
+              invest@satori-inference.com
+            </a>
+            .
           </p>
         </div>
       </div>

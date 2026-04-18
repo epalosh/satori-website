@@ -33,7 +33,12 @@ const featStyles: Record<string, CSSProperties> = {
 export default function Features() {
   const isMobile = useIsMobile();
   return (
-    <section className="section">
+    <section
+      className="section"
+      // Mobile only: bump padding so this reads as a distinct section. Desktop
+      // keeps the default .section padding (120px top/bottom).
+      style={isMobile ? { paddingTop: 96, paddingBottom: 96 } : undefined}
+    >
       <div className="container">
         <div style={{ textAlign: isMobile ? "center" : "left", maxWidth: 820, marginLeft: isMobile ? "auto" : 0, marginRight: isMobile ? "auto" : 0, marginBottom: isMobile ? 32 : 48 }}>
           <h2 className="h-xl">
